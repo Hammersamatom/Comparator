@@ -1,0 +1,4 @@
+﻿  Comparator.cpp
+c:\users\joseph\documents\github\comparator\comparator\comparator.cpp(31): warning C4244: 'initializing': conversion from 'std::streamoff' to 'int', possible loss of data
+c:\users\joseph\documents\github\comparator\comparator\comparator.cpp(32): warning C4244: 'initializing': conversion from 'std::streamoff' to 'int', possible loss of data
+  Comparator.vcxproj -> C:\Users\Joseph\Documents\GitHub\Comparator\Debug\Comparator.exe
