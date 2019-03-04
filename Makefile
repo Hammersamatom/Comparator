@@ -1,13 +1,14 @@
 CC=g++
 CPPFLAGS=-march=native -mtune=native -Os -fno-plt -flto -fno-exceptions
+PROGNAME=comparator
 
-compare: Comparator.o
-	$(CC) -o compare Comparator.o $(CPPFLAGS)
+$(PROGNAME): main.o
+	$(CC) -o $(PROGNAME) main.o $(CPPFLAGS)
 
 strip:
-	strip -S --strip-unneeded --remove-section=.note.gnu.gold-version --remove-section=.comment --remove-section=.note --remove-section=.note.gnu.build-id --remove-section=.note.ABI-tag compare
+	strip -S --strip-unneeded --remove-section=.note.gnu.gold-version --remove-section=.comment --remove-section=.note --remove-section=.note.gnu.build-id --remove-section=.note.ABI-tag $(PROGNAME)
 
 
 .PHONY: clean
 clean:
-	rm compare *.o
+	rm $(PROGNAME) *.o *.out
