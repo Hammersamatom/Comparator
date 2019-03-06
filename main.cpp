@@ -1,7 +1,5 @@
 #include <iostream>
 #include <cstdlib>
-//#include <cstring>
-//#include <string>
 #include <fstream>
 
 using namespace std;
@@ -10,7 +8,7 @@ int main(int argc, char * argv[])
 {
 	if (argc < 2)
 	{
-		cerr << "No arguments specified.\n";
+		printf("No arguments specified.\n");
 		return 1;
 	}
 
@@ -27,11 +25,11 @@ int main(int argc, char * argv[])
 	// Compare the sizes, exits if the sizes are mismatched
 	if (lengthOne != lengthTwo)
 	{
-		cerr << "File size mismatch!\nWill not continue.\nFile One: " << lengthOne << "\nFile Two: " << lengthTwo << endl;
+		printf("File size mismatch! Will not continue.\nFile One: %d\nFile Two: %d\n", lengthOne, lengthTwo);
 		return 1;
 	}
 
-    cout << "Preliminary size check passed." << endl;
+   	printf("Preliminary size check passed.\n");
 
 	// Reset cursor to beginning
 	fileOne.seekg(0, fileOne.beg);
@@ -53,16 +51,10 @@ int main(int argc, char * argv[])
 
 	for (long i = 0; i < lengthOne; i++)
 	{
-		//cout << i << "/" << lengthOne << "\r";
 		if    (bufferOne[i] == bufferTwo[i])      { match++;    }
 		else			         	  			  { mismatch++; }
 	}
 
-	cout
-	 << "Matches:       " <<  match                       		  << " Bytes\n"
- 	 << "Match rate:    " << ((double)match    / lengthOne) * 100 << "%\n"
-	 << "Mismatches:    " <<  mismatch                            << " Bytes\n" 
-	 << "Mismatch rate: " << ((double)mismatch / lengthOne) * 100 << "%" << endl;
-
+	printf("Matches: %d Bytes\nMatch rate: %f%%\nMismatches: %d Bytes\nMismatch rate: %f%%\n",match,((double)match    / lengthOne) * 100,mismatch,((double)mismatch / lengthOne) * 100);
 	return 0;
 }
