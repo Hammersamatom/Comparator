@@ -1,3 +1,10 @@
+# Name of the program
+comparator
+
+# Compiled stuff
 *.o
 *.out
-comparator
+*.gcda
+
+# Unneeded stuff
+.vscode
